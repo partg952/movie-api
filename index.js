@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const requests = require('requests');
 const Cheerio = require('cheerio');
+const PORT = process.env.PORT || 3003;
 app.use(express.json())
 app.get('/',(req,res)=>{
 const arr = [];
@@ -45,4 +46,4 @@ app.get('/info',(req,res)=>{
         res.send(arr);
     })
 })
-app.listen(3003,()=>console.log('listening'));
+app.listen(PORT,()=>console.log('listening'));
