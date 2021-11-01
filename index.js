@@ -26,7 +26,7 @@ app.get("/watch",(req,res)=>{
     let id = req.query['id'];
     res.send(`https://123movieshd.stream/m_applet.php?q=mv&id=${id}&server=1`)
 })
-app.get('/info',(req,res)=>{
+app.post('/info',(req,res)=>{
     let arr = [];
     let desc_arr = [];
     let url = req.body.url;
