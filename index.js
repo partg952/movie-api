@@ -47,4 +47,20 @@ app.post('/info',(req,res)=>{
         res.send(arr);
     })
 })
+
+app.get("/search",(req,res)=>{
+    let keyword = req.query['q'];
+    let arr = [];
+    requests("https://moviestars.to/search/"+keyword.replace(" ","-")).on("data",data=>{
+        const $ = Cheerio.load(data);
+        $("div.flw-item").each(function(i){
+            arr.push({
+            img:$("div.flw-item > div.film-poster > img").eq(i).attr("data-src"),
+            title:$("div.flw-item > div.film-detail > h3.film-name > a").eq(i).attr("title"),
+            url:$("div.flw-item > div.film-detail > h3.film-name > a").eq(i).attr("href"),
+            })
+        })
+        res.send(arr);
+    })
+})
 app.listen(PORT,()=>console.log('listening'));
