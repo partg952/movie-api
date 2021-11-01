@@ -24,7 +24,7 @@ requests("https://moviestars.to/").on('data',data=>{
 })
 app.get("/watch",(req,res)=>{
     let id = req.query['id'];
-    res.send(`https://123movieshd.stream/m_applet.php?q=mv&id=${id}&server=1`)
+    res.send(`https://123movieshd.stream/m_applet.php?q=mv&id=${id}&server=2`)
 })
 app.post('/info',(req,res)=>{
     let arr = [];
