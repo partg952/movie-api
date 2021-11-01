@@ -5,6 +5,7 @@ const requests = require('requests');
 const Cheerio = require('cheerio');
 const PORT = process.env.PORT || 3003;
 app.use(express.json())
+app.use(cors())
 app.get('/',(req,res)=>{
 const arr = [];
 requests("https://moviestars.to/").on('data',data=>{
